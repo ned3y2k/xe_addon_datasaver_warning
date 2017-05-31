@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="datasaver_warning">
+		<value xml:lang="ko"><![CDATA[Data Saver를 통하여 접속하셨습니다. 사이트가 올바르게 동작하지 않을수 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[You have access through Data Saver. Your site may not work correctly.]]></value>
+		<value xml:lang="jp"><![CDATA[Data Saverを介して接続されました。サイトが正しく動作しないかもです。]]></value>
+	</item>
+</lang>
