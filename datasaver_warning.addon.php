@@ -98,7 +98,7 @@ if (!class_exists('datasaver_warningAddon')) {
 		function before_display_content(DisplayHandler $displayHandler, ModuleObject $oModule, $handler, $output) {
 			$msg = addslashes(Context::getLang('datasaver_warning'));
 
-			if($GLOBALS['suppress_datasaver_warning'])
+            if($GLOBALS['suppress_datasaver_warning'] || Context::getRequestMethod() != 'GET')
 			    return $output;
 
 			if($this->isRequestedDatasaver() && !array_key_exists('shown_datasaver_warning', $_COOKIE)) {
