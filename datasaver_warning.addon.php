@@ -32,10 +32,15 @@ if (!class_exists('datasaver_warningAddon')) {
 		}
 
 		private function isRequestedDatasaver() {
-			return $_SERVER['HTTP_VIA']
-				|| $_SERVER['HTTP_SAVE_DATA']
-				|| $_SERVER['HTTP_FORWARDED']
-				|| $_SERVER['HTTP_X_FORWARDED_FOR'];
+            $headers =  getallheaders();
+
+            foreach($headers as $key=>$val){
+                if(strtolower($key) == 'save-data' && $val == 'on'){
+                    return true;
+                }
+            }
+
+            return false;
 		}
 
 		/** @param string $addon_path $addon_path 호출된 애드온의 경로를 담고 있습니다. */
@@ -92,6 +97,9 @@ if (!class_exists('datasaver_warningAddon')) {
 		 */
 		function before_display_content(DisplayHandler $displayHandler, ModuleObject $oModule, $handler, $output) {
 			$msg = addslashes(Context::getLang('datasaver_warning'));
+
+			if($GLOBALS['suppress_datasaver_warning'])
+			    return $output;
 
 			if($this->isRequestedDatasaver() && !array_key_exists('shown_datasaver_warning', $_COOKIE)) {
 				setcookie('shown_datasaver_warning', '1', time() + (60 * $this->getPeriod()));
