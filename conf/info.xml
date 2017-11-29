@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon version="0.3">
+<addon version="0.2">
     <title xml:lang="ko">Datasaver 사용 경고</title>
     <title xml:lang="en">admin menu access logging</title>
 
@@ -11,7 +11,7 @@
         Warnings when using Data Saver
     </description>
 
-    <version>1.0</version>
+    <version>1.1</version>
     <date>2017-06-01</date>
 
     <author email_address="ned3y2k@gmail.com" link="http://blog.ned3y2k.co.kr/">
